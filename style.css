@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --violet: #4a235a;
+    --light-violet: #76448a;
+    --white: #FFF;
+    --danger: #e74c3c;
+    --top-sapce: 1.5rem;
+    --font-size: 1.5rem;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lato';
+}
+
+.container {
+    width: 40%;
+    height: 500px;
+    background-color: var(--violet);
+    color: var(--white);
+    padding: 1.5rem;
+    border: 15px solid var(--light-violet);
+}
+
+.container .input-container {
+    width: 100%;
+    height: 80px;
+    background-color: var(--light-violet);
+    border-radius: 5px;
+    position: relative;
+}
+
+.container .input-container i {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--font-size);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.container .input-container .tooltip {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #FFF;
+    border-radius: 10px;
+    padding: 8px 15px;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.container .input-container .tooltip.active {
+    opacity: 1;
+}
+
+.container .input-container input {
+    width: 100%;
+    height: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    background-color: var(--light-violet);
+    border: none;
+    outline: none;
+    color: var(--white);
+    border-radius: 5px;
+}
+
+.container .passwd-length {
+    margin-top: var(--top-sapce);
+    width: 100%;
+    font-size: var(--font-size);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+
+.container .passwd-length input {
+    width: 50px;
+    border: none;
+    padding: 0 .5rem;
+    font-size: var(--font-size);
+}
+
+.container .criteres {
+    margin-top: var(--top-sapce);
+    width: 100%;
+    font-size: var(--font-size);
+}
+
+.container .criteres .critere {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.criteres .critere input {
+    width: 25px;
+    height: 25px;
+}
+
+.container .btn-container {
+    margin: var(--top-sapce) 0;
+    width: 100%;
+}
+
+.container .btn-container button {
+    padding: 1rem 2rem;
+    width: 100%;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--violet);
+    border-radius: 5px;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all .3s;
+    background-color: #c09c0b;
+}
+
+.container .btn-container button.active {
+    background-color: #f1c40f;
+}
+
+.alert-container {
+    width: 400px;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.alert-container .alert {
+    width: 100%;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    background-color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 0;
+    left: 100%;
+}
+
+.alert-container .alert.active {
+    animation: appear .5s ease forwards;
+}
+
+.alert-container .alert.inactive {
+    animation: disappear .5s ease forwards;
+}
+
+@keyframes appear {
+    0% {
+        left: 100%;
+    } 40% {
+        left: -10px;
+    } 80% {
+        left: 10px;
+    } 100% {
+        left: 0;
+    }
+}
+
+@keyframes disappear {
+    0% {
+        left: 0;
+    } 40% {
+        left: 10px;
+    } 80% {
+        left: -10px;
+    } 100% {
+        left: 100%;
+    }
+}
+
+.alert-container .alert i {
+    margin-right: 1rem;
+}
+
+.alert-container .alert .close {
+    position: relative;
+    right: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.alert.danger {
+    border: 3px solid var(--danger);
+    color: var(--danger);
+}
